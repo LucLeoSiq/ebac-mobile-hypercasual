@@ -17,7 +17,7 @@ public class ItemCollectableBase : MonoBehaviour
         //if (particleSystem != null) particleSystem.transform.SetParent(null);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.transform.CompareTag(compareTag))
         {
