@@ -18,11 +18,6 @@ public class PlayerController : MonoBehaviour
     private bool _canRun;
     private Vector3 _pos;
 
-    private void Start()
-    {
-        _canRun = true;
-    }
-
     void Update()
     {
         if (_canRun)
@@ -42,5 +37,10 @@ public class PlayerController : MonoBehaviour
         {
             _canRun = false;
         } 
+    }
+
+    public void StartToRun()
+    {
+        _canRun = true; 
     }
 }
