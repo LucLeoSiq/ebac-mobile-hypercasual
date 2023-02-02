@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
+    // Public Variables
     [Header("Lerp")]
     public Transform lerpTarget;
     public float lerpSpeed = 1f;
@@ -15,6 +15,9 @@ public class PlayerController : MonoBehaviour
     [Header("Tags Setup")]
     public string tagToCheckEnemy = "Enemy";
 
+    public GameObject endScreen;
+
+    // Private Variables
     private bool _canRun;
     private Vector3 _pos;
 
@@ -35,8 +38,14 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.transform.tag == tagToCheckEnemy)
         {
-            _canRun = false;
+            EndGame(); 
         } 
+    }
+
+    private void EndGame()
+    {
+        _canRun = false;
+        endScreen.SetActive(true);
     }
 
     public void StartToRun()
