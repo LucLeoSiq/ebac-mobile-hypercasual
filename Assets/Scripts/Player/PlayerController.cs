@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Tags Setup")]
     public string tagToCheckEnemy = "Enemy";
+    public string tagToCheckFinishLine = "EndLine";
 
     public GameObject endScreen;
 
@@ -40,6 +41,14 @@ public class PlayerController : MonoBehaviour
         {
             EndGame(); 
         } 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.transform.tag == tagToCheckFinishLine)
+        {
+            EndGame();
+        }
     }
 
     private void EndGame()
