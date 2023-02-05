@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Ebac.Core.Singleton;
 using TMPro;
-using UnityEditor.Search;
+using DG.Tweening;
 
 public class PlayerController : Singleton<PlayerController>
 {
@@ -110,6 +110,8 @@ public class PlayerController : Singleton<PlayerController>
         p.y = _startPosition.y = amount;
         transform.position = p;
         Invoke(nameof(ResetHeight), duration); 
+
+        transform.DOMoveY(_startPosition.y + amount, .1f).OnComplete(ResetHeight);
     }
 
     public void ResetHeight()
