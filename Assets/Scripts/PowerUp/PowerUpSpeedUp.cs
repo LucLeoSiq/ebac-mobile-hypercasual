@@ -10,6 +10,7 @@ public class PowerUpSpeedUp : PowerUpBase
     protected override void StartPowerUp()
     {
         base.StartPowerUp();
+        PlayerController.Instance.SetPowerUpText("Speed Up");
         PlayerController.Instance.PowerUpSpeedUp(amountToSpeed);
     }
 

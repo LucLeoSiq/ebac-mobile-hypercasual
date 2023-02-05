@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Ebac.Core.Singleton;
+using TMPro;
 
 public class PlayerController : Singleton<PlayerController>
 {
@@ -17,7 +18,11 @@ public class PlayerController : Singleton<PlayerController>
     public string tagToCheckEnemy = "Enemy";
     public string tagToCheckFinishLine = "EndLine";
 
+    [Header("Text")]
+    public TextMeshPro uiTextPowerUp;
+
     public GameObject endScreen;
+    public bool invincible = false;
 
     // Private Variables
     private bool _canRun;
@@ -46,7 +51,10 @@ public class PlayerController : Singleton<PlayerController>
     {
         if (collision.transform.tag == tagToCheckEnemy)
         {
-            EndGame(); 
+            if (!invincible)
+            {
+                EndGame();
+            }
         } 
     }
 
@@ -54,7 +62,10 @@ public class PlayerController : Singleton<PlayerController>
     {
         if(other.transform.tag == tagToCheckFinishLine)
         {
-            EndGame();
+            if (!invincible)
+            {
+                EndGame();
+            }
         }
     }
 
@@ -69,9 +80,20 @@ public class PlayerController : Singleton<PlayerController>
         _canRun = true; 
     }
 
+    // POWER-UPS
+    public void SetPowerUpText(string s)
+    {
+        uiTextPowerUp.text = s;
+    }
+
     public void PowerUpSpeedUp(float f)
     {
         _currentSpeed = f;
+    }
+
+    public void SetInvincible(bool b)
+    {
+        invincible = b;
     }
 
     public void ResetSpeed()
