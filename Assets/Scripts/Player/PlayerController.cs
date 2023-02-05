@@ -104,20 +104,14 @@ public class PlayerController : Singleton<PlayerController>
         _currentSpeed = forwardSpeed;
     }
 
-    public void ChangeHeight(float amount, float duration)
+    public void ChangeHeight(float amount, float duration, float animationDuration, Ease ease)
     {
-        var p = transform.position;
-        p.y = _startPosition.y = amount;
-        transform.position = p;
+        transform.DOMoveY(_startPosition.y + amount, animationDuration).SetEase(ease);
         Invoke(nameof(ResetHeight), duration); 
-
-        transform.DOMoveY(_startPosition.y + amount, .1f).OnComplete(ResetHeight);
     }
 
     public void ResetHeight()
     {
-        var p = transform.position;
-        p.y = _startPosition.y;
-        transform.position = p;
+        transform.DOMoveY(_startPosition.y, .1f);
     }
 }
