@@ -19,11 +19,15 @@ public class PlayerController : Singleton<PlayerController>
     public string tagToCheckEnemy = "Enemy";
     public string tagToCheckFinishLine = "EndLine";
 
+    public GameObject endScreen;
+
     [Header("Text")]
     public TextMeshPro uiTextPowerUp;
-
-    public GameObject endScreen;
+    
     public bool invincible = false;
+
+    [Header("Text")]
+    public GameObject coinCollector;
 
     // Private Variables
     private bool _canRun;
@@ -113,5 +117,10 @@ public class PlayerController : Singleton<PlayerController>
     public void ResetHeight()
     {
         transform.DOMoveY(_startPosition.y, .1f);
+    }
+
+    public void ChangeCoinCollectorSize(float amount)
+    {
+        coinCollector.transform.localScale = Vector3.one * amount;
     }
 }

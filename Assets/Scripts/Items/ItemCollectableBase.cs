@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class ItemCollectableBase : MonoBehaviour
 {
-    public string compareTag = "Player";
+    public string compareTag;
     public ParticleSystem particleSystem;
     public float timeToHide = 3;
     public GameObject graphicItem;
 
     [Header("Sounds")]
     public AudioSource audioSource;
+      
 
     private void Awake()
     {
@@ -25,17 +26,22 @@ public class ItemCollectableBase : MonoBehaviour
         }
     }
 
+    protected virtual void HideItens()
+    {
+        if (graphicItem != null) graphicItem.SetActive(false);
+        Invoke("HideObject", timeToHide);
+    }
+
+
     protected virtual void Collect()
     {
-        if (graphicItem != null) graphicItem.SetActive(false); 
-        Invoke("HideObject", timeToHide);
+        HideItens();
         OnCollect(); 
     }
 
     private void HideObject()
     {
         gameObject.SetActive(false);
-
     }
 
     protected virtual void OnCollect()
