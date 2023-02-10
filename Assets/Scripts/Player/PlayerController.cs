@@ -1,8 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Ebac.Core.Singleton;
+using TMPro;
+using DG.Tweening;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : Singleton<PlayerController>
 {
     // Public Variables
     [Header("Lerp")]
@@ -18,9 +21,25 @@ public class PlayerController : MonoBehaviour
 
     public GameObject endScreen;
 
+    [Header("Text")]
+    public TextMeshPro uiTextPowerUp;
+    
+    public bool invincible = false;
+
+    [Header("Text")]
+    public GameObject coinCollector;
+
     // Private Variables
     private bool _canRun;
     private Vector3 _pos;
+    private float _currentSpeed;
+    private Vector3 _startPosition;
+
+    private void Start()
+    {
+        _startPosition = transform.position;
+        ResetSpeed();
+    }
 
     void Update()
     {
@@ -31,7 +50,7 @@ public class PlayerController : MonoBehaviour
             _pos.z = transform.position.z;
 
             transform.position = Vector3.Lerp(transform.position, _pos, lerpSpeed * Time.deltaTime);
-            transform.Translate(transform.forward * forwardSpeed * Time.deltaTime);
+            transform.Translate(transform.forward * _currentSpeed * Time.deltaTime);
         } 
     }
 
@@ -39,7 +58,10 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.transform.tag == tagToCheckEnemy)
         {
-            EndGame(); 
+            if (!invincible)
+            {
+                EndGame();
+            }
         } 
     }
 
@@ -47,7 +69,10 @@ public class PlayerController : MonoBehaviour
     {
         if(other.transform.tag == tagToCheckFinishLine)
         {
-            EndGame();
+            if (!invincible)
+            {
+                EndGame();
+            }
         }
     }
 
@@ -60,5 +85,42 @@ public class PlayerController : MonoBehaviour
     public void StartToRun()
     {
         _canRun = true; 
+    }
+
+    // POWER-UPS
+    public void SetPowerUpText(string s)
+    {
+        uiTextPowerUp.text = s;
+    }
+
+    public void PowerUpSpeedUp(float f)
+    {
+        _currentSpeed = f;
+    }
+
+    public void SetInvincible(bool b)
+    {
+        invincible = b;
+    }
+
+    public void ResetSpeed()
+    {
+        _currentSpeed = forwardSpeed;
+    }
+
+    public void ChangeHeight(float amount, float duration, float animationDuration, Ease ease)
+    {
+        transform.DOMoveY(_startPosition.y + amount, animationDuration).SetEase(ease);
+        Invoke(nameof(ResetHeight), duration); 
+    }
+
+    public void ResetHeight()
+    {
+        transform.DOMoveY(_startPosition.y, .1f);
+    }
+
+    public void ChangeCoinCollectorSize(float amount)
+    {
+        coinCollector.transform.localScale = Vector3.one * amount;
     }
 }
