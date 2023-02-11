@@ -2005,8 +2005,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationModel: {fileID: 693983608}
-  run: {fileID: 1827226128182048838, guid: d11b4c92772679543977a6abf00208c4, type: 3}
-  idle: {fileID: 1827226128182048838, guid: a77157ad63e4b73449da7b48e47efb3c, type: 3}
+  runClip: {fileID: 1827226128182048838, guid: cb326d8f910d067468234931c00cf8d8, type: 3}
+  idleClip: {fileID: 1827226128182048838, guid: d11b4c92772679543977a6abf00208c4, type: 3}
 --- !u!1001 &735962762
 PrefabInstance:
   m_ObjectHideFlags: 0

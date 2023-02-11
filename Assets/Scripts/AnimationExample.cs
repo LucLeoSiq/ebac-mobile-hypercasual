@@ -30,7 +30,6 @@ public class AnimationExample : MonoBehaviour
 
     private void PlayAnimation(AnimationClip clip)
     {
-        animationModel.clip = clip;
-        animationModel.Play();
+        animationModel.CrossFade(clip.name);
     }
 }
