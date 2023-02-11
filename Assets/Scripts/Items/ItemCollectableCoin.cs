@@ -36,6 +36,6 @@ public class ItemCollectableCoin : ItemCollectableBase
         OnCollect();
     }
 
-
+    
 
 }
