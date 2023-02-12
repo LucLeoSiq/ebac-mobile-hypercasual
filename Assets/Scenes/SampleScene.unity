@@ -700,7 +700,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 216781564}
-  m_LocalRotation: {x: 0.21056113, y: -0.000000008410317, z: 0.0000000018114983, w: 0.9775807}
+  m_LocalRotation: {x: 0.21056113, y: 0.000000008410311, z: -0.0000000018114971, w: 0.9775807}
   m_LocalPosition: {x: 0, y: 2.34, z: -5.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -807,10 +807,13 @@ MonoBehaviour:
   animatorSetups:
   - type: 0
     trigger: idle
+    speed: 2
   - type: 1
     trigger: run
+    speed: 1.8
   - type: 2
     trigger: dead
+    speed: 1
 --- !u!1001 &371699844
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1557,7 +1560,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_LocalRotation: {x: 0.21056113, y: -0.000000008410317, z: 0.0000000018114983, w: 0.9775807}
+  m_LocalRotation: {x: 0.21056113, y: 0.000000008410311, z: -0.0000000018114971, w: 0.9775807}
   m_LocalPosition: {x: 0, y: 2.34, z: -5.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1885,7 +1888,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lerpTarget: {fileID: 1249824800}
   lerpSpeed: 0
-  forwardSpeed: 6
+  forwardSpeed: 7
   tagToCheckEnemy: Enemy
   tagToCheckFinishLine: EndLine
   endScreen: {fileID: 1028654831}
