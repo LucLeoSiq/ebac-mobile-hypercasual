@@ -66,6 +66,7 @@ public class PlayerController : Singleton<PlayerController>
             {
                 MoveBack();
                 EndGame(AnimatorManager.AnimationType.DEAD);
+                Debug.Log("Player collided with: " + collision.transform.tag);
             }
         } 
     }

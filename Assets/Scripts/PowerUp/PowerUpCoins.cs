@@ -11,6 +11,7 @@ public class PowerUpCoins : PowerUpBase
     protected override void StartPowerUp()
     {
         base.StartPowerUp();
+        PlayerController.Instance.SetPowerUpText("Coin Range Up");
         PlayerController.Instance.ChangeCoinCollectorSize(sizeAmount); 
     }
 
