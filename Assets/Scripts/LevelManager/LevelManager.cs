@@ -6,7 +6,9 @@ public class LevelManager : MonoBehaviour
 {
     public Transform container;
 
-    public GameObject level;
+    public List<GameObject> level;
+
+    [SerializeField] private int _index;
 
     private void Awake()
     {
@@ -15,6 +17,7 @@ public class LevelManager : MonoBehaviour
 
     private void SpawnLevel()
     {
-        var currentLevel = Instantiate(level, container);
+        var currentLevel = Instantiate(level[_index], container);
+        currentLevel.transform.localPosition = Vector3.zero;
     }
 }
