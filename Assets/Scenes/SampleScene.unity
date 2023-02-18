@@ -1308,7 +1308,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   container: {fileID: 1456749406}
-  level: {fileID: 5486317286447228132, guid: f31378725ae8f66468e44086d0a709b3, type: 3}
+  level:
+  - {fileID: 5486317286447228132, guid: 70fee24b65af3224ea89fb5d7c1bd83e, type: 3}
+  - {fileID: 5486317286447228132, guid: f31378725ae8f66468e44086d0a709b3, type: 3}
+  _index: 0
 --- !u!4 &1013223109
 Transform:
   m_ObjectHideFlags: 0
