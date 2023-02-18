@@ -6,18 +6,40 @@ public class LevelManager : MonoBehaviour
 {
     public Transform container;
 
-    public List<GameObject> level;
+    public List<GameObject> levels;
 
     [SerializeField] private int _index;
+    private GameObject _currentLevel;
 
     private void Awake()
     {
-        SpawnLevel();
+        SpawnNextLevel();
     }
 
-    private void SpawnLevel()
+    private void SpawnNextLevel()
     {
-        var currentLevel = Instantiate(level[_index], container);
-        currentLevel.transform.localPosition = Vector3.zero;
+        if(_currentLevel != null)
+        {
+            Destroy(_currentLevel);
+            _index++;
+
+            if(_index >= levels.Count) ResetLevelIndex();
+        }
+
+        _currentLevel = Instantiate(levels[_index], container);
+        _currentLevel.transform.localPosition = Vector3.zero;
+    }
+
+    private void ResetLevelIndex()
+    {
+        _index = 0;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            SpawnNextLevel();
+        }
     }
 }
