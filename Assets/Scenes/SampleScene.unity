@@ -1311,18 +1311,12 @@ MonoBehaviour:
   levels:
   - {fileID: 5486317286447228132, guid: 70fee24b65af3224ea89fb5d7c1bd83e, type: 3}
   - {fileID: 5486317286447228132, guid: f31378725ae8f66468e44086d0a709b3, type: 3}
-  levelPiecesStart:
-  - {fileID: 3762685230871450477, guid: 439b3b905db8bdf4a942a0999a3b88ab, type: 3}
-  levelPieces:
-  - {fileID: 3762685230871450477, guid: e082132ad78303d48b4e979edfb3120d, type: 3}
-  - {fileID: 8463861063948755550, guid: 7cfbfd325548a8a46a9cb35c36a66774, type: 3}
-  levelPiecesEnd:
-  - {fileID: 3762685230871450477, guid: 55936bc4156d3054d89a4953d737ee26, type: 3}
-  piecesStartNumber: 3
-  piecesNumber: 5
-  piecesEndNumber: 1
+  levelPiecesStartSetup:
+  - {fileID: 11400000, guid: 6065b399069c57249b44394f5dfd6418, type: 2}
+  - {fileID: 11400000, guid: b342dffcf11b07b4d9cc282202fcac19, type: 2}
   timeBetweenPieces: 0.3
   _index: 1
+  _spawnedPieces: []
 --- !u!4 &1013223109
 Transform:
   m_ObjectHideFlags: 0
