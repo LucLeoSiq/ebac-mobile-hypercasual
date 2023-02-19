@@ -94,6 +94,11 @@ public class LevelManager : MonoBehaviour
             spawnedPiece.transform.localPosition = Vector3.zero;
         }
 
+        foreach(var p in spawnedPiece.GetComponentsInChildren<ArtPiece>())
+        {
+            p.ChangePiece(ArtManager.Instance.GetSetupByType(_currSetup.artType).gameObject);
+        }
+
         _spawnedPieces.Add(spawnedPiece);
     }
 
