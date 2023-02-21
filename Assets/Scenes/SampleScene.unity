@@ -2226,7 +2226,7 @@ GameObject:
   - component: {fileID: 1417443222}
   - component: {fileID: 1417443221}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: CoinsAnimatorManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
