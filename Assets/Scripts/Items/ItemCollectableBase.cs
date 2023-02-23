@@ -48,8 +48,10 @@ public class ItemCollectableBase : MonoBehaviour
     {
         if (particleSystem != null)
         {
-            if (particleSystem != null) particleSystem.Play();
-            if (audioSource != null) audioSource.Play();
+            particleSystem.transform.SetParent(null);
+            particleSystem.Play();
         }
+
+        if (audioSource != null) audioSource.Play();
     }
 }
