@@ -7,11 +7,11 @@ using System.Linq;
 
 public class CoinsAnimationManager : Singleton<CoinsAnimationManager>
 {
-    public List<ItemCollectableCoin> itens;
+    public List<ItemCollectableCoin> itens = new List<ItemCollectableCoin>();
 
     [Header("Animation")]
     public float scaleDuration = .2f;
-    public float scaleTimeBetweenPieces;
+    public float scaleTimeBetweenPieces = .1f;
     public Ease ease = Ease.OutBack;
 
     private void Start()
