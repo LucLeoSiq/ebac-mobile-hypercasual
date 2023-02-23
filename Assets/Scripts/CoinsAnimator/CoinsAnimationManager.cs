@@ -14,11 +14,6 @@ public class CoinsAnimationManager : Singleton<CoinsAnimationManager>
     public float scaleTimeBetweenPieces = .1f;
     public Ease ease = Ease.OutBack;
 
-    private void Start()
-    {
-        itens = new List<ItemCollectableCoin>();
-    }
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.T))
