@@ -4,6 +4,7 @@ using UnityEngine;
 using Ebac.Core.Singleton;
 using TMPro;
 using DG.Tweening;
+using UnityEditor;
 
 public class PlayerController : Singleton<PlayerController>
 {
@@ -32,14 +33,18 @@ public class PlayerController : Singleton<PlayerController>
     [Header("Animation")]
     public AnimatorManager animatorManager;
 
-    [Header("Particles")]
+    [Header("VFXs")]
     public ParticleSystem vfxDeath;
+
+    [Header("Limits")]
+    public float limit = 4;
+    public Vector2 playerLimitVector = new Vector2(-4, 4);
 
     [SerializeField] private BounceHelper _bounceHelper;
 
     // Private Variables
     private bool _canRun;
-    private Vector3 _pos;
+    [SerializeField]private Vector3 _pos;
     private float _currentSpeed;
     private Vector3 _startPosition;
     private float _baseSpeedToAnimation = 7;
@@ -52,15 +57,18 @@ public class PlayerController : Singleton<PlayerController>
 
     void Update()
     {
-        if (_canRun)
-        {
-            _pos = lerpTarget.position;
-            _pos.y = transform.position.y;
-            _pos.z = transform.position.z;
+        if (!_canRun) return; 
 
-            transform.position = Vector3.Lerp(transform.position, _pos, lerpSpeed * Time.deltaTime);
-            transform.Translate(transform.forward * _currentSpeed * Time.deltaTime);
-        } 
+        _pos = lerpTarget.position;
+        _pos.y = transform.position.y;
+        _pos.z = transform.position.z;
+
+        if (_pos.x < playerLimitVector.x) _pos.x = playerLimitVector.x;
+        else if (_pos.x > playerLimitVector.y) _pos.x = playerLimitVector.y;
+
+        transform.position = Vector3.Lerp(transform.position, _pos, lerpSpeed * Time.deltaTime);
+        transform.Translate(transform.forward * _currentSpeed * Time.deltaTime);
+       
     }
 
 
