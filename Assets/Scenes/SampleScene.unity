@@ -778,7 +778,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 216781564}
-  m_LocalRotation: {x: 0.2105611, y: -0.000000016820625, z: 0.0000000036229943, w: 0.9775807}
+  m_LocalRotation: {x: 0.2105611, y: -0.000000016820627, z: 0.0000000036229946, w: 0.9775807}
   m_LocalPosition: {x: 0, y: 2.8561916, z: -4.0889807}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1343,7 +1343,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_LocalRotation: {x: 0.2105611, y: -0.000000016820625, z: 0.0000000036229943, w: 0.9775807}
+  m_LocalRotation: {x: 0.2105611, y: -0.000000016820627, z: 0.0000000036229946, w: 0.9775807}
   m_LocalPosition: {x: 0, y: 2.8561916, z: -4.0889807}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1422,6 +1422,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectPastPosition: {x: 0, y: 0}
   velocity: 1
+  playerLimitVector: {x: -4, y: 4}
 --- !u!65 &602250170
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1528,7 +1529,9 @@ MonoBehaviour:
   coinCollector: {fileID: 1408697072}
   animatorManager: {fileID: 276713408}
   vfxDeath: {fileID: 1725360717}
+  limit: 4
   _bounceHelper: {fileID: 602250176}
+  _pos: {x: 0, y: 0, z: 0}
 --- !u!54 &602250175
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2150,7 +2153,6 @@ GameObject:
   - component: {fileID: 1249824799}
   - component: {fileID: 1249824798}
   - component: {fileID: 1249824797}
-  - component: {fileID: 1249824801}
   m_Layer: 0
   m_Name: PositionController
   m_TagString: Untagged
@@ -2236,20 +2238,6 @@ Transform:
   m_Father: {fileID: 2122544021}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1249824801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1249824795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c01e6aebe1ec3fa478b9ca6524e42f16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectPastPosition: {x: 0, y: 0}
-  velocity: 1
 --- !u!1 &1250727850
 GameObject:
   m_ObjectHideFlags: 0
